@@ -3,6 +3,8 @@ const { DealerModel } = require("../models/Dealer.model");
  
 const dealerRoutes = express.Router();
 
+dealerRoutes.use(auth)
+
 dealerRoutes.get("/", async (req, res) => {
   try {
     const data = await DealerModel.find();
