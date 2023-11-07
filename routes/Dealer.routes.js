@@ -7,8 +7,10 @@ const dealerRoutes = express.Router();
 dealerRoutes.use(auth)
 
 dealerRoutes.get("/", async (req, res) => {
+    const {userID} = req.body
+
   try {
-    const data = await DealerModel.find();
+    const data = await DealerModel.find({userID});
     console.log(data);
     res.status(200).send({ msg: data });
   } catch (error) {

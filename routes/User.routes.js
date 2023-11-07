@@ -48,14 +48,14 @@ userRoutes.post("/login", async (req, res) => {
             { userID: user1._id, username: user1.name },
             "rahul"
           );
-          res.status(200).send({ msg: "Login Successfull", token, status:'success' });
+          res.status(200).send({ msg: "Login Successfull", token, status:'success', userID: user1._id});
         } else {
           res.status(200).send({ msg: "Wrong Credentials",  status:'error' });
 
         }  
       });
     } else {
-      res.status(200).send({ msg: "Wrong Credentials",status:'error' });
+      res.status(200).send({ msg: "User not Found",status:'error' });
     }
   } catch (error) {
     res.status(400).send({ err: error.message, status:'error' });
