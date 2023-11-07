@@ -5,7 +5,7 @@ const auth = (req, res, next) => {
     const token = req.headers.authorization;
 
     if (token) {
-      // console.log(token);
+      console.log(token);
 
       var decoded = jwt.verify(token.split(" ")[1], "rahul");
       // console.log({ decoded });
@@ -15,10 +15,10 @@ const auth = (req, res, next) => {
         req.body.username = decoded.username;
         next()
       }else {
-        res.status(200).send({ msg: "login first" });
+        res.status(200).send({ msg: "Something went wrong" });
       }
     } else {
-      res.status(200).send({ msg: "login first" });
+      res.status(200).send({ msg: "Login First" });
       
     }
   } catch (error) {

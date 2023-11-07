@@ -12,6 +12,7 @@ const dealerSchema = mongoose.Schema({
   image: {type: String, required: true},
   transmission: {type: String, required: true},
   price:  {type: Number, required: true},
+  mileage:  {type: Number, required: true},
   brand: {type: String, required: true},
   model: {type: String, required: true},
   colors:  {type: String, required: true},

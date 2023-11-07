@@ -16,18 +16,18 @@ oemRoutes.get("/", async (req, res) => {
  
 oemRoutes.get('/search', async (req, res) => {
   try {
-    const query = req.query.query;
-console.log({query})
+    const keyword = req.query.keyword;
+console.log("iiii ", req.query)
    
     const searchCriteria = {
       $or: [],
     };
 
-     if (!isNaN(query)) {
-      searchCriteria.$or.push({ year: Number(query) });
+     if (!isNaN(keyword)) {
+      searchCriteria.$or.push({ year: Number(keyword) });
     } else {
-      searchCriteria.$or.push({ brand: { $regex: query, $options: 'i' } });
-      searchCriteria.$or.push({ name: { $regex: query, $options: 'i' } });
+      searchCriteria.$or.push({ brand: { $regex: keyword, $options: 'i' } });
+      searchCriteria.$or.push({ name: { $regex: keyword, $options: 'i' } });
     }
 
      const data = await OemModel.find(searchCriteria).lean();
