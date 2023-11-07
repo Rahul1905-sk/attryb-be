@@ -1,5 +1,6 @@
 const express = require("express");
 const { DealerModel } = require("../models/Dealer.model");
+const { auth } = require("../middleware/auth.middleware");
  
 const dealerRoutes = express.Router();
 
